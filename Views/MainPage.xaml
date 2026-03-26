@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClearEverythingV2.MainPage"
+             Title="Очистка полей"
+             BackgroundColor="White">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20"
+                        Padding="30,20"
+                        VerticalOptions="Center">
+
+            <Label Text="Введите ваши данные"
+               FontSize="24"
+               FontAttributes="Bold"
+               TextColor="Black"
+               HorizontalOptions="Center"/>
+
+            <!-- Поле для имени -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Имя:"
+                   FontSize="16"
+                   TextColor="Black"/>
+                <Entry Text="{Binding Name}"    
+                   Placeholder="Введите ваше имя"
+                   TextColor="Black"
+                   BackgroundColor="#F0F0F0"
+                   FontSize="16"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False"/>
+            </VerticalStackLayout>
+
+            <!-- Поле для email -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Email:"
+                   FontSize="16"
+                   TextColor="Black"/>
+                <Entry Text="{Binding Email}"
+                   Placeholder="example@mail.com"
+                   Keyboard="Email"
+                   TextColor="Black"
+                   BackgroundColor="#F0F0F0"
+                   FontSize="16"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False"/>
+                
+            </VerticalStackLayout>
+
+            <!-- Поле для телефона -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Telephone:"
+                   FontSize="16"
+                   TextColor="Black"/>
+                <Entry Text="{Binding Phone}"
+                   Placeholder="+7 (999) 123-45-67"
+                   Keyboard="Telephone"
+                   TextColor="Black"
+                   BackgroundColor="#F0F0F0"
+                   FontSize="16"/>
+            </VerticalStackLayout>
+
+            <!-- Кнопка очистки -->
+            <Button Text="Очистить всё"
+                Command="{Binding ClearCommand}"
+                BackgroundColor="#FF4444"
+                TextColor="White"
+                FontSize="18"
+                CornerRadius="10"
+                HeightRequest="50"
+                Margin="0,20,0,0"/>
+
+            <!-- Отладочная информация (опционально) -->
+            <Frame BackgroundColor="#F8F9FA"
+               CornerRadius="10"
+               Padding="15"
+               Margin="0,20,0,0">
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Текущие значения:" 
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="14"/>
+                    <Label Text="{Binding Name, StringFormat='Имя: {0}'}" 
+                       TextColor="Black"
+                       FontSize="12"/>
+                    <Label Text="{Binding Email, StringFormat='Email: {0}'}" 
+                       TextColor="Black"
+                       FontSize="12"/>
+                    <Label Text="{Binding Phone, StringFormat='Телефон: {0}'}" 
+                       TextColor="Black"
+                       FontSize="12"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
